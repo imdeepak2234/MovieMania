@@ -27,10 +27,23 @@
     align-items: center;
     justify-content: space-between;
   }
+  .logo-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
   .logo {
+    display: flex;
+    align-items: center;
     cursor: pointer;
+
     img {
-      height: 50px;
+      max-width: 50px;
+      height: auto;
+      margin-right: 10px;
     }
   }
   .menuItems {
