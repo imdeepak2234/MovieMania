@@ -23,9 +23,18 @@ const HeroBanner = () => {
   }, [data]);
 
   const searchQueryHandler = (event) => {
-    if (event.key === "Enter" && query.length > 0) {
+    if ((event.key === "Enter" || event.type === "click") && query.length > 0) {
       navigate(`/search/${query}`);
     }
+  };
+
+  const handleButtonClick = () => {
+    const button = document.querySelector(".searchInput button");
+    button.classList.add("clicked");
+    setTimeout(() => {
+      button.classList.remove("clicked");
+    }, 200);
+    searchQueryHandler({ type: "click" });
   };
 
   return (
@@ -50,7 +59,7 @@ const HeroBanner = () => {
               onChange={(e) => setQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
             />
-            <button>Search</button>
+            <button onClick={handleButtonClick}>Search</button>
           </div>
         </div>
       </ContentWrapper>
